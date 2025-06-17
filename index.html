@@ -7,11 +7,43 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&family=Montserrat:wght@700&family=Orbitron:wght@500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
+    /* Splash styles */
+    #splash {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #0a192f; /* Navy blue */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      font-family: 'Orbitron', sans-serif;
+      color: #64ffda; /* Teal */
+    }
+    #splash h1 {
+      font-size: 2.5rem;
+      letter-spacing: 0.2em;
+      margin: 0;
+    }
+    #splash p {
+      font-size: 1rem;
+      color: #8892b0; /* Light gray-blue */
+      margin-top: 10px;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    /* Hide portfolio initially */
+    #main-content {
+      display: none;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
     body {
       font-family: 'Open Sans', sans-serif;
-      background: #212A31; /* Dark space blue */
-      color: #f0f0f0;
+      background: #0a192f; /* Navy blue */
+      color: #ccd6f6; /* Light blue */
       padding-bottom: 100px;
     }
     header {
@@ -26,13 +58,13 @@
       font-size: 2.5rem; 
       font-weight: 800; 
       margin-bottom: 10px;
-      color: #fff;
+      color: #e6f1ff; /* White-blue */
       font-family: 'Orbitron', sans-serif;
       letter-spacing: 1px;
     }
     header p { 
       font-size: 1.2rem; 
-      color: #748D92; /* Muted teal */
+      color: #8892b0; /* Light gray-blue */
       margin-bottom: 15px; 
     }
     .socials {
@@ -42,12 +74,12 @@
       display: inline-block;
       margin-right: 15px;
       text-decoration: none;
-      color: #748D92;
+      color: #8892b0;
       font-size: 20px;
       transition: all 0.3s ease;
     }
     .socials a:hover { 
-      color: #03D904; /* Vibrant green */
+      color: #64ffda; /* Teal */
       transform: translateY(-3px);
     }
 
@@ -55,24 +87,24 @@
       display: inline-block;
       margin-top: 10px;
       background: transparent;
-      color: #03D904;
+      color: #64ffda;
       padding: 10px 20px;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
-      border: 2px solid #03D904;
+      border: 2px solid #64ffda;
     }
     .download-resume:hover {
-      background-color: #03D904;
-      color: #212A31;
+      background-color: rgba(100, 255, 218, 0.1);
+      color: #64ffda;
       transform: translateY(-3px);
     }
     .container { max-width: 900px; margin: auto; padding: 20px; }
     .section { margin-bottom: 50px; }
     .section h2 {
       font-family: 'Orbitron', sans-serif;
-      color: #fff;
+      color: #e6f1ff;
       margin-bottom: 20px;
       position: relative;
       display: inline-block;
@@ -85,32 +117,32 @@
       left: 0;
       width: 50px;
       height: 4px;
-      background: #03D904;
+      background: #64ffda;
     }
     .card {
-      background: #253944;
+      background: #112240; /* Dark navy */
       padding: 25px;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       margin-bottom: 20px;
       transition: all 0.3s ease;
-      border-left: 4px solid #124E66;
+      border-left: 4px solid #1e4b6e;
     }
     .card:hover { 
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(3, 217, 4, 0.2);
-      border-left: 4px solid #03D904;
+      box-shadow: 0 10px 25px rgba(100, 255, 218, 0.1);
+      border-left: 4px solid #64ffda;
     }
     .card h3 { 
       margin-bottom: 12px; 
-      color: #fff;
+      color: #e6f1ff;
       font-family: 'Montserrat', sans-serif;
     }
-    .card p { margin-bottom: 8px; color: #b0b0b0; }
+    .card p { margin-bottom: 8px; color: #8892b0; }
     .tag {
       display: inline-block;
-      background: #124E66;
-      color: #fff;
+      background: #1e4b6e;
+      color: #e6f1ff;
       padding: 4px 12px;
       border-radius: 20px;
       font-size: 12px;
@@ -119,12 +151,12 @@
       transition: all 0.3s ease;
     }
     .card:hover .tag {
-      background: #03D904;
-      color: #212A31;
+      background: #64ffda;
+      color: #0a192f;
     }
 
     .hero {
-      background: linear-gradient(135deg, #124E66 0%, #212A31 100%);
+      background: linear-gradient(135deg, #112240 0%, #0a192f 100%);
       color: white;
       padding: 100px 20px;
       text-align: center;
@@ -139,7 +171,7 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(3,217,4,0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(100,255,218,0.1) 0%, transparent 70%);
       animation: pulse 15s infinite alternate;
     }
     @keyframes pulse {
@@ -153,9 +185,9 @@
       letter-spacing: 2px;
     }
     .hero span#typed { 
-      color: #03D904; 
+      color: #64ffda; 
       font-weight: 800;
-      text-shadow: 0 0 10px rgba(3,217,4,0.5);
+      text-shadow: 0 0 10px rgba(100,255,218,0.3);
     }
 
     .filters {
@@ -166,8 +198,8 @@
     }
     .filter-btn {
       border: none;
-      background: #253944;
-      color: #748D92;
+      background: #112240;
+      color: #8892b0;
       padding: 8px 16px;
       border-radius: 20px;
       cursor: pointer;
@@ -176,12 +208,12 @@
       transition: all 0.3s ease;
     }
     .filter-btn.active { 
-      background: #03D904; 
-      color: #212A31; 
+      background: #64ffda; 
+      color: #0a192f; 
     }
     .filter-btn:hover {
       transform: translateY(-2px);
-      color: #fff;
+      color: #e6f1ff;
     }
 
     .skills-box {
@@ -190,18 +222,18 @@
       gap: 12px;
     }
     .skill-tag {
-      background: #253944;
-      color: #b0b0b0;
+      background: #112240;
+      color: #8892b0;
       padding: 8px 16px;
       border-radius: 20px;
       font-size: 14px;
       font-weight: 600;
       transition: all 0.3s ease;
-      border: 1px solid #124E66;
+      border: 1px solid #1e4b6e;
     }
     .skill-tag:hover {
-      background: #03D904;
-      color: #212A31;
+      background: #64ffda;
+      color: #0a192f;
       transform: translateY(-3px);
       border-color: transparent;
     }
@@ -211,7 +243,7 @@
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      background: #253944;
+      background: #112240;
       border-radius: 30px;
       padding: 12px 25px;
       display: flex;
@@ -221,11 +253,11 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      border: 1px solid #124E66;
+      border: 1px solid #1e4b6e;
     }
     .navbar a {
       text-decoration: none;
-      color: #748D92;
+      color: #8892b0;
       font-weight: 600;
       font-size: 14px;
       display: flex;
@@ -236,7 +268,7 @@
       opacity: 0.9;
     }
     .navbar a:hover, .navbar a.active {
-      color: #03D904;
+      color: #64ffda;
       opacity: 1;
       transform: translateY(-3px);
     }
@@ -246,7 +278,7 @@
     }
     .navbar a:hover i {
       transform: scale(1.2);
-      text-shadow: 0 0 8px rgba(3,217,4,0.5);
+      text-shadow: 0 0 8px rgba(100,255,218,0.3);
     }
 
     .image-container {
@@ -255,15 +287,15 @@
         height: 180px;
         overflow: hidden;
         border-radius: 50%;
-        border: 4px solid #03D904;
+        border: 4px solid #64ffda;
         flex-shrink: 0;
         box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         transition: all 0.3s ease;
     }
     .image-container:hover {
       transform: rotate(5deg) scale(1.05);
-      border-color: #748D92;
-      box-shadow: 0 0 20px rgba(3,217,4,0.3);
+      border-color: #8892b0;
+      box-shadow: 0 0 20px rgba(100,255,218,0.2);
     }
 
     .image-container img {
@@ -279,168 +311,217 @@
     #projects .card:hover,
     #education .card:hover,
     #hobbies .card:hover {
-      background: #124E66;
-      color: #fff;
+      background: #1e4b6e;
+      color: #e6f1ff;
     }
     #projects .card:hover p,
     #education .card:hover p,
     #hobbies .card:hover p {
-      color: #fff;
+      color: #e6f1ff;
     }
     #projects .card:hover h3,
     #education .card:hover h3,
     #hobbies .card:hover h3 {
-      color: #03D904;
+      color: #64ffda;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="image-container">
-    <img src="me.jpg" alt="Profile Photo" />
-  </div>
-  <div>
-    <h1>Dhanush Lakshmipathy</h1>
-    <p>Software Engineer passionate about creating meaningful software solutions</p>
-    
-    <div class="socials">
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lakshmipathydhanush@gmail.com" target="_blank" title="Email">
-        <i class="fa-brands fa-google fa-lg"></i>
-      </a>
-      <a href="https://github.com/dhanushlakshmipathy" target="_blank">
-        <i class="fa-brands fa-github fa-lg"></i>    
-      </a>
-      <a href="https://www.linkedin.com/in/dhanushlakshmipathy" target="_blank">
-        <i class="fa-brands fa-linkedin fa-lg"></i>     
-      </a>
-    </div>
-    <a href="resume.pdf" class="download-resume" target="_blank"><i class="fas fa-file-download"></i> Download Resume</a>
-  </div>
-</header>
-
-<div class="hero">
-  <h2><span id="typed"></span></h2>
+<!-- Splash Screen -->
+<div id="splash">
+  <h1 id="scramble">D H A N U S H   L A K S H M I P A T H Y</h1>
+  <p id="splash-desc">Software Engineer passionate about creating meaningful software solutions</p>
 </div>
 
-<div class="container">
-  <section id="about" class="section">
-    <h2>About</h2>
-    <div class="card">
-      <p>Motivated and detail-oriented software engineer with experience in full-stack web development, problem solving, and teamwork. Seeking opportunities to apply my skills and grow professionally.</p>
+<!-- Main Content (hidden initially) -->
+<div id="main-content">
+  <header>
+    <div class="image-container">
+      <img src="me.jpg" alt="Profile Photo" />
     </div>
-  </section>
+    <div>
+      <h1>Dhanush Lakshmipathy</h1>
+      <p>Software Engineer passionate about creating meaningful software solutions</p>
+      
+      <div class="socials">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lakshmipathydhanush@gmail.com" target="_blank" title="Email">
+          <i class="fa-brands fa-google fa-lg"></i>
+        </a>
+        <a href="https://github.com/dhanushlakshmipathy" target="_blank">
+          <i class="fa-brands fa-github fa-lg"></i>    
+        </a>
+        <a href="https://www.linkedin.com/in/dhanushlakshmipathy" target="_blank">
+          <i class="fa-brands fa-linkedin fa-lg"></i>     
+        </a>
+      </div>
+      <a href="resume.pdf" class="download-resume" target="_blank"><i class="fas fa-file-download"></i> Download Resume</a>
+    </div>
+  </header>
 
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="card">
-      <h3>Project Management App <span class="tag">MERN</span></h3>
-      <p><strong>Duration:</strong> June 2024 - July 2024</p>
-      <p>MERN app for managing projects (create, edit, delete, manage). Frontend: HTML, CSS, JS.</p>
-    </div>
-    <div class="card">
-      <h3>Piezoelectric Footstep Generator <span class="tag">Hardware</span></h3>
-      <p><strong>Duration:</strong> B-Tech 4th Semester</p>
-      <p>Generates electricity using piezo plates + Arduino (Engineering Clinics).</p>
-    </div>
-  </section>
+  <div class="hero">
+    <h2><span id="typed"></span></h2>
+  </div>
 
-  <section id="skills" class="section">
-    <h2>Skills</h2>
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="web">Web</button>
-      <button class="filter-btn" data-filter="db">DB</button>
-      <button class="filter-btn" data-filter="lang">Lang</button>
-    </div>
-    <div class="skills-box">
-      <span class="skill-tag web">React.js</span>
-      <span class="skill-tag web">Node.js</span>
-      <span class="skill-tag web">Express.js</span>
-      <span class="skill-tag web">HTML</span>
-      <span class="skill-tag web">CSS</span>
-      <span class="skill-tag web">JavaScript</span>
-      <span class="skill-tag db">MongoDB</span>
-      <span class="skill-tag db">MySQL</span>
-      <span class="skill-tag lang">Java</span>
-      <span class="skill-tag lang">Python</span>
-      <span class="skill-tag lang">C/C++</span>
-    </div>
-  </section>
+  <div class="container">
+    <section id="about" class="section">
+      <h2>About</h2>
+      <div class="card">
+        <p>Motivated and detail-oriented software engineer with experience in full-stack web development, problem solving, and teamwork. Seeking opportunities to apply my skills and grow professionally.</p>
+      </div>
+    </section>
 
-  <section id="certifications" class="section">
-    <h2>Certifications</h2>
-    <div class="card">
-      <p>MERN Full Stack Certification Program (Ethnus)</p>
-    </div>
-    <div class="card">
-        <p>Java Full Stack Certification Program(Udemy)</p>
-    </div>
-  </section>
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="card">
+        <h3>Project Management App <span class="tag">MERN</span></h3>
+        <p><strong>Duration:</strong> June 2024 - July 2024</p>
+        <p>MERN app for managing projects (create, edit, delete, manage). Frontend: HTML, CSS, JS.</p>
+      </div>
+      <div class="card">
+        <h3>Piezoelectric Footstep Generator <span class="tag">Hardware</span></h3>
+        <p><strong>Duration:</strong> B-Tech 4th Semester</p>
+        <p>Generates electricity using piezo plates + Arduino (Engineering Clinics).</p>
+      </div>
+    </section>
 
-  <section id="hobbies" class="section">
-    <h2>Hobbies & Interests</h2>
-    <div class="card">
-      <p>⚽ Sports enthusiast: Football, Cricket, Badminton</p>
-      <p>✏️ Drawing & Sketching</p>
-      <p>🌍 Traveling & Exploring new places</p>
-    </div>
-  </section>
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="db">DB</button>
+        <button class="filter-btn" data-filter="lang">Lang</button>
+      </div>
+      <div class="skills-box">
+        <span class="skill-tag web">React.js</span>
+        <span class="skill-tag web">Node.js</span>
+        <span class="skill-tag web">Express.js</span>
+        <span class="skill-tag web">HTML</span>
+        <span class="skill-tag web">CSS</span>
+        <span class="skill-tag web">JavaScript</span>
+        <span class="skill-tag db">MongoDB</span>
+        <span class="skill-tag db">MySQL</span>
+        <span class="skill-tag lang">Java</span>
+        <span class="skill-tag lang">Python</span>
+        <span class="skill-tag lang">C/C++</span>
+      </div>
+    </section>
 
-  <section id="education" class="section">
-    <h2>Education</h2>
-    <div class="card">
-      <h3>B-Tech CSE</h3>
-      <p>Vellore Institute of Technology</p>
-      <p>(2022-Present)</p>
-    </div>
-    <div class="card">
-      <h3>2nd PUC</h3>
-      <p>Narayana PU College</p>
-      <p>(2020-2022)</p>
-    </div>
-    <div class="card">
-      <h3>10th</h3>
-      <p>Narayana E-Techno (CBSE)</p>
-      <p>(2020)</p>
-    </div>
-  </section>
-</div>
+    <section id="certifications" class="section">
+      <h2>Certifications</h2>
+      <div class="card">
+        <p>MERN Full Stack Certification Program (Ethnus)</p>
+      </div>
+      <div class="card">
+          <p>Java Full Stack Certification Program(Udemy)</p>
+      </div>
+    </section>
 
-<div class="navbar">
-  <a href="#about" class="active">
-    <i class="fas fa-home"></i>
-    <span>About</span>
-  </a>
-  <a href="#projects">
-    <i class="fas fa-briefcase"></i>
-    <span>Projects</span>
-  </a>
-  <a href="#skills">
-    <i class="fas fa-code"></i>
-    <span>Skills</span>
-  </a>
-  <a href="#certifications">
-    <i class="fas fa-certificate"></i>
-    <span>Certifications</span>
-  </a>
-  <a href="#hobbies">
-    <i class="fas fa-heart"></i>
-    <span>Hobbies</span>
-  </a>
-  <a href="#education">
-    <i class="fas fa-graduation-cap"></i>
-    <span>Education</span>
-  </a>
+    <section id="hobbies" class="section">
+      <h2>Hobbies & Interests</h2>
+      <div class="card">
+        <p>⚽ Sports enthusiast: Football, Cricket, Badminton</p>
+        <p>✏️ Drawing & Sketching</p>
+        <p>🌍 Traveling & Exploring new places</p>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <div class="card">
+        <h3>B-Tech CSE</h3>
+        <p>Vellore Institute of Technology</p>
+        <p>(2022-Present)</p>
+      </div>
+      <div class="card">
+        <h3>2nd PUC</h3>
+        <p>Narayana PU College</p>
+        <p>(2020-2022)</p>
+      </div>
+      <div class="card">
+        <h3>10th</h3>
+        <p>Narayana E-Techno (CBSE)</p>
+        <p>(2020)</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="navbar">
+    <a href="#about" class="active">
+      <i class="fas fa-home"></i>
+      <span>About</span>
+    </a>
+    <a href="#projects">
+      <i class="fas fa-briefcase"></i>
+      <span>Projects</span>
+    </a>
+    <a href="#skills">
+      <i class="fas fa-code"></i>
+      <span>Skills</span>
+    </a>
+    <a href="#certifications">
+      <i class="fas fa-certificate"></i>
+      <span>Certifications</span>
+    </a>
+    <a href="#hobbies">
+      <i class="fas fa-heart"></i>
+      <span>Hobbies</span>
+    </a>
+    <a href="#education">
+      <i class="fas fa-graduation-cap"></i>
+      <span>Education</span>
+    </a>
+  </div>
 </div>
 
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script>
+  // Splash screen animation
+  const scrambleEl = document.getElementById('scramble');
+  const descEl = document.getElementById('splash-desc');
+  const name = "DHANUSH LAKSHMIPATHY";
+  let interval = null;
+
+  function startScramble() {
+    interval = setInterval(() => {
+      let scrambled = name.split('').map(l => {
+        if (l === ' ') return ' ';
+        return Math.random() > 0.3 ? String.fromCharCode(65 + Math.floor(Math.random() * 26)) : l;
+      }).join(' ');
+      scrambleEl.textContent = scrambled;
+    }, 120);
+  }
+
+  function endScramble() {
+    clearInterval(interval);
+    scrambleEl.textContent = name.split('').join(' ');
+    descEl.style.opacity = 1;
+  }
+
+  function showMainContent() {
+    document.getElementById('splash').style.display = 'none';
+    document.getElementById('main-content').style.display = 'block';
+  }
+
+  // Run splash animation
+  startScramble();
+
+  setTimeout(() => {
+    endScramble();
+  }, 2500); // 2.5s scramble
+
+  setTimeout(() => {
+    showMainContent();
+  }, 3500); // 1s show final + desc, then load portfolio
+
+  // Typed.js animation for hero section
   new Typed("#typed", {
     strings: ["I am a Web Developer", "a Cloud Engineer", "and a Gamer!"],
     typeSpeed: 50, backSpeed: 25, loop: true
   });
 
+  // Skills filter functionality
   const buttons = document.querySelectorAll(".filter-btn");
   const tags = document.querySelectorAll(".skill-tag");
   buttons.forEach(btn => {
@@ -454,7 +535,7 @@
     });
   });
 
-  // Add active class to current section in navbar
+  // Navbar active section highlighting
   window.addEventListener('scroll', function() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.navbar a');
