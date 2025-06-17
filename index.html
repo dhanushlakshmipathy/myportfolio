@@ -3,35 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dhanush Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&family=Montserrat:wght@700&family=Orbitron:wght@500&display=swap" rel="stylesheet"/>
+  <title>Dhanush Lakshmipathy | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    /* Splash styles */
+    /* Light theme splash screen */
     #splash {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: #0a192f; /* Navy blue */
+      background: #f6f8fa;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      font-family: 'Orbitron', sans-serif;
-      color: #64ffda; /* Teal */
+      font-family: 'Inter', sans-serif;
+      color: #24292e;
     }
     #splash h1 {
-      font-size: 2.5rem;
-      letter-spacing: 0.2em;
+      font-size: 2rem;
+      font-weight: 600;
       margin: 0;
+      color: #0366d6;
     }
     #splash p {
       font-size: 1rem;
-      color: #8892b0; /* Light gray-blue */
+      color: #586069;
       margin-top: 10px;
       opacity: 0;
       transition: opacity 0.5s;
+    }
+    #splash::after {
+      content: 'Loading...';
+      position: absolute;
+      bottom: 40px;
+      color: #586069;
+      font-size: 0.9rem;
     }
 
     /* Hide portfolio initially */
@@ -39,265 +47,263 @@
       display: none;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background: #0a192f; /* Navy blue */
-      color: #ccd6f6; /* Light blue */
-      padding-bottom: 100px;
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+      scroll-behavior: smooth; 
     }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #24292e;
+      line-height: 1.5;
+    }
+
+    /* Light theme header */
     header {
-      max-width: 900px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 50px 20px;
+      padding: 32px 16px;
       display: flex;
-      gap: 40px;
+      gap: 32px;
       align-items: center;
+      border-bottom: 1px solid #e1e4e8;
     }
     header h1 { 
-      font-size: 2.5rem; 
-      font-weight: 800; 
-      margin-bottom: 10px;
-      color: #e6f1ff; /* White-blue */
-      font-family: 'Orbitron', sans-serif;
-      letter-spacing: 1px;
+      font-size: 1.8rem; 
+      font-weight: 600; 
+      margin-bottom: 8px;
+      color: #000000;
     }
     header p { 
-      font-size: 1.2rem; 
-      color: #8892b0; /* Light gray-blue */
-      margin-bottom: 15px; 
+      font-size: 1rem; 
+      color: #586069;
+      margin-bottom: 16px; 
     }
     .socials {
-      margin: 20px 0;
+      margin: 16px 0;
     }
     .socials a {
       display: inline-block;
-      margin-right: 15px;
+      margin-right: 16px;
       text-decoration: none;
-      color: #8892b0;
-      font-size: 20px;
-      transition: all 0.3s ease;
+      color: #586069;
+      font-size: 18px;
+      transition: all 0.1s ease;
     }
     .socials a:hover { 
-      color: #64ffda; /* Teal */
-      transform: translateY(-3px);
+      color: #0366d6;
     }
 
     .download-resume {
       display: inline-block;
-      margin-top: 10px;
-      background: transparent;
-      color: #64ffda;
-      padding: 10px 20px;
+      margin-top: 8px;
+      background: #f6f8fa;
+      color: #24292e;
+      padding: 6px 16px;
       border-radius: 6px;
       text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      border: 2px solid #64ffda;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.1s ease;
+      border: 1px solid #e1e4e8;
     }
     .download-resume:hover {
-      background-color: rgba(100, 255, 218, 0.1);
-      color: #64ffda;
-      transform: translateY(-3px);
+      background: #e1e4e8;
+      border-color: #d1d5da;
     }
-    .container { max-width: 900px; margin: auto; padding: 20px; }
-    .section { margin-bottom: 50px; }
+
+    .container { 
+      max-width: 1280px; 
+      margin: auto; 
+      padding: 0 16px; 
+    }
+
+    /* Light theme sections */
+    .section { 
+      margin: 48px 0; 
+    }
     .section h2 {
-      font-family: 'Orbitron', sans-serif;
-      color: #e6f1ff;
-      margin-bottom: 20px;
-      position: relative;
-      display: inline-block;
-      letter-spacing: 1px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #000000;
+      margin-bottom: 24px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e1e4e8;
     }
-    .section h2::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 50px;
-      height: 4px;
-      background: #64ffda;
-    }
+
+    /* Light theme cards */
     .card {
-      background: #112240; /* Dark navy */
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      margin-bottom: 20px;
-      transition: all 0.3s ease;
-      border-left: 4px solid #1e4b6e;
+      background: #f6f8fa;
+      padding: 24px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      transition: all 0.2s ease;
+      border: 1px solid #e1e4e8;
     }
     .card:hover { 
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(100, 255, 218, 0.1);
-      border-left: 4px solid #64ffda;
+      border-color: #0366d6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transform: translateY(-2px);
     }
     .card h3 { 
       margin-bottom: 12px; 
-      color: #e6f1ff;
-      font-family: 'Montserrat', sans-serif;
+      color: #0366d6;
+      font-size: 1.1rem;
+      font-weight: 500;
     }
-    .card p { margin-bottom: 8px; color: #8892b0; }
+    .card p { 
+      margin-bottom: 8px; 
+      color: #586069;
+      font-size: 0.95rem;
+    }
     .tag {
       display: inline-block;
-      background: #1e4b6e;
-      color: #e6f1ff;
-      padding: 4px 12px;
+      background: #f1f8ff;
+      color: #0366d6;
+      padding: 3px 8px;
       border-radius: 20px;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 500;
       margin-left: 8px;
-      transition: all 0.3s ease;
-    }
-    .card:hover .tag {
-      background: #64ffda;
-      color: #0a192f;
     }
 
+    /* Hero section */
     .hero {
-      background: linear-gradient(135deg, #112240 0%, #0a192f 100%);
-      color: white;
-      padding: 100px 20px;
+      background: #ffffff;
+      padding: 80px 16px;
       text-align: center;
-      margin-bottom: 40px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(100,255,218,0.1) 0%, transparent 70%);
-      animation: pulse 15s infinite alternate;
-    }
-    @keyframes pulse {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      margin-bottom: 32px;
+      border-bottom: 1px solid #e1e4e8;
     }
     .hero h2 { 
-      font-size: 2.5rem; 
-      font-family: 'Orbitron', sans-serif;
-      position: relative;
-      letter-spacing: 2px;
+      font-size: 2rem; 
+      font-weight: 600;
+      color: #24292e;
+      margin-bottom: 16px;
     }
-    .hero span#typed { 
-      color: #64ffda; 
-      font-weight: 800;
-      text-shadow: 0 0 10px rgba(100,255,218,0.3);
+    .hero p.subtitle {
+      color: #586069;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
+    /* Animated underline for hero */
+    .hero h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: #0366d6;
+      margin: 16px auto 0;
+      animation: underline 2s infinite ease-in-out;
+    }
+    @keyframes underline {
+      0%, 100% { width: 80px; }
+      50% { width: 120px; }
+    }
+
+    /* Light theme filters */
     .filters {
       margin-bottom: 20px;
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
     }
     .filter-btn {
-      border: none;
-      background: #112240;
-      color: #8892b0;
-      padding: 8px 16px;
-      border-radius: 20px;
+      border: 1px solid #e1e4e8;
+      background: #f6f8fa;
+      color: #24292e;
+      padding: 5px 12px;
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 14px;
-      font-weight: 600;
-      transition: all 0.3s ease;
+      font-size: 12px;
+      font-weight: 500;
+      transition: all 0.1s ease;
     }
     .filter-btn.active { 
-      background: #64ffda; 
-      color: #0a192f; 
+      background: #0366d6;
+      color: #ffffff;
+      border-color: #0366d6;
     }
     .filter-btn:hover {
-      transform: translateY(-2px);
-      color: #e6f1ff;
+      background: #e1e4e8;
+      border-color: #d1d5da;
     }
 
+    /* Light theme skills */
     .skills-box {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 8px;
     }
     .skill-tag {
-      background: #112240;
-      color: #8892b0;
-      padding: 8px 16px;
+      background: #f6f8fa;
+      color: #0366d6;
+      padding: 5px 12px;
       border-radius: 20px;
-      font-size: 14px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      border: 1px solid #1e4b6e;
+      font-size: 12px;
+      font-weight: 500;
+      transition: all 0.1s ease;
+      border: 1px solid #e1e4e8;
     }
     .skill-tag:hover {
-      background: #64ffda;
-      color: #0a192f;
-      transform: translateY(-3px);
-      border-color: transparent;
+      background: #f1f8ff;
     }
 
+    /* Light theme navbar */
     .navbar {
       position: fixed;
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      background: #112240;
-      border-radius: 30px;
-      padding: 12px 25px;
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 8px 16px;
       display: flex;
-      gap: 25px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      gap: 24px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       z-index: 1000;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      border: 1px solid #1e4b6e;
+      border: 1px solid #e1e4e8;
     }
     .navbar a {
       text-decoration: none;
-      color: #8892b0;
-      font-weight: 600;
-      font-size: 14px;
+      color: #586069;
+      font-weight: 500;
+      font-size: 12px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 5px;
-      transition: all 0.3s ease;
-      opacity: 0.9;
+      gap: 4px;
+      transition: all 0.1s ease;
     }
     .navbar a:hover, .navbar a.active {
-      color: #64ffda;
-      opacity: 1;
-      transform: translateY(-3px);
+      color: #0366d6;
     }
     .navbar a i {
-      font-size: 18px;
-      transition: all 0.3s ease;
-    }
-    .navbar a:hover i {
-      transform: scale(1.2);
-      text-shadow: 0 0 8px rgba(100,255,218,0.3);
+      font-size: 16px;
     }
 
+    /* Profile image */
     .image-container {
         position: relative;
-        width: 180px;
-        height: 180px;
+        width: 160px;
+        height: 160px;
         overflow: hidden;
-        border-radius: 50%;
-        border: 4px solid #64ffda;
+        border-radius: 6px;
         flex-shrink: 0;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        transition: all 0.3s ease;
+        border: 1px solid #e1e4e8;
+        transition: all 0.2s ease;
     }
     .image-container:hover {
-      transform: rotate(5deg) scale(1.05);
-      border-color: #8892b0;
-      box-shadow: 0 0 20px rgba(100,255,218,0.2);
+        transform: scale(1.03);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-
     .image-container img {
         position: absolute;
         top: 0;
@@ -307,22 +313,41 @@
         object-fit: cover;
     }
 
-    /* Project/Education/Hobby Card Hover Effects */
-    #projects .card:hover,
-    #education .card:hover,
-    #hobbies .card:hover {
-      background: #1e4b6e;
-      color: #e6f1ff;
+    /* Project links */
+    .project-links {
+      margin-top: 12px;
+      display: flex;
+      gap: 12px;
     }
-    #projects .card:hover p,
-    #education .card:hover p,
-    #hobbies .card:hover p {
-      color: #e6f1ff;
+    .project-links a {
+      color: #0366d6;
+      text-decoration: none;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.1s ease;
     }
-    #projects .card:hover h3,
-    #education .card:hover h3,
-    #hobbies .card:hover h3 {
-      color: #64ffda;
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .socials {
+        justify-content: center;
+      }
+      .navbar {
+        gap: 12px;
+        padding: 8px 12px;
+      }
+      .hero h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -330,11 +355,11 @@
 
 <!-- Splash Screen -->
 <div id="splash">
-  <h1 id="scramble">D H A N U S H   L A K S H M I P A T H Y</h1>
+  <h1 id="scramble">dhanushlakshmipathy</h1>
   <p id="splash-desc">Software Engineer passionate about creating meaningful software solutions</p>
 </div>
 
-<!-- Main Content (hidden initially) -->
+<!-- Main Content -->
 <div id="main-content">
   <header>
     <div class="image-container">
@@ -346,28 +371,32 @@
       
       <div class="socials">
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lakshmipathydhanush@gmail.com" target="_blank" title="Email">
-          <i class="fa-brands fa-google fa-lg"></i>
+          <i class="fa-solid fa-envelope"></i>
         </a>
         <a href="https://github.com/dhanushlakshmipathy" target="_blank">
-          <i class="fa-brands fa-github fa-lg"></i>    
+          <i class="fa-brands fa-github"></i>    
         </a>
         <a href="https://www.linkedin.com/in/dhanushlakshmipathy" target="_blank">
-          <i class="fa-brands fa-linkedin fa-lg"></i>     
+          <i class="fa-brands fa-linkedin"></i>     
         </a>
       </div>
-      <a href="resume.pdf" class="download-resume" target="_blank"><i class="fas fa-file-download"></i> Download Resume</a>
+      <a href="resume.pdf" class="download-resume" target="_blank">
+        <i class="fas fa-file-arrow-down"></i> Download Resume
+      </a>
     </div>
   </header>
 
   <div class="hero">
-    <h2><span id="typed"></span></h2>
+    <h2>Building digital experiences with code</h2>
+    <p class="subtitle">Full-Stack Developer | Problem Solver | Tech Enthusiast</p>
   </div>
 
   <div class="container">
     <section id="about" class="section">
-      <h2>About</h2>
+      <h2>README.md</h2>
       <div class="card">
         <p>Motivated and detail-oriented software engineer with experience in full-stack web development, problem solving, and teamwork. Seeking opportunities to apply my skills and grow professionally.</p>
+        <p>When I'm not coding, you'll find me playing football, sketching, or exploring new technologies.</p>
       </div>
     </section>
 
@@ -376,12 +405,25 @@
       <div class="card">
         <h3>Project Management App <span class="tag">MERN</span></h3>
         <p><strong>Duration:</strong> June 2024 - July 2024</p>
-        <p>MERN app for managing projects (create, edit, delete, manage). Frontend: HTML, CSS, JS.</p>
+        <p>A full-stack application for managing projects with features like task assignment, progress tracking, and team collaboration.</p>
+        <div class="project-links">
+          <a href="https://github.com/dhanushlakshmipathy/project-management-app" target="_blank">
+            <i class="fab fa-github"></i> Code
+          </a>
+          <a href="https://project-management-demo.com" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </div>
       </div>
       <div class="card">
         <h3>Piezoelectric Footstep Generator <span class="tag">Hardware</span></h3>
         <p><strong>Duration:</strong> B-Tech 4th Semester</p>
-        <p>Generates electricity using piezo plates + Arduino (Engineering Clinics).</p>
+        <p>Designed and implemented a system that generates electricity from footstep pressure using piezoelectric plates and Arduino.</p>
+        <div class="project-links">
+          <a href="https://github.com/dhanushlakshmipathy/footstep-generator" target="_blank">
+            <i class="fab fa-github"></i> Documentation
+          </a>
+        </div>
       </div>
     </section>
 
@@ -390,8 +432,8 @@
       <div class="filters">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="web">Web</button>
-        <button class="filter-btn" data-filter="db">DB</button>
-        <button class="filter-btn" data-filter="lang">Lang</button>
+        <button class="filter-btn" data-filter="db">Database</button>
+        <button class="filter-btn" data-filter="lang">Languages</button>
       </div>
       <div class="skills-box">
         <span class="skill-tag web">React.js</span>
@@ -411,91 +453,90 @@
     <section id="certifications" class="section">
       <h2>Certifications</h2>
       <div class="card">
-        <p>MERN Full Stack Certification Program (Ethnus)</p>
+        <h3>MERN Full Stack Certification</h3>
+        <p><strong>Issued by:</strong> Ethnus</p>
+        <p><strong>Date:</strong> May 2024</p>
       </div>
       <div class="card">
-          <p>Java Full Stack Certification Program(Udemy)</p>
+        <h3>Java Full Stack Developer</h3>
+        <p><strong>Issued by:</strong> Udemy</p>
+        <p><strong>Date:</strong> March 2024</p>
       </div>
     </section>
 
     <section id="hobbies" class="section">
       <h2>Hobbies & Interests</h2>
       <div class="card">
-        <p>⚽ Sports enthusiast: Football, Cricket, Badminton</p>
-        <p>✏️ Drawing & Sketching</p>
-        <p>🌍 Traveling & Exploring new places</p>
+        <p><i class="fas fa-futbol" style="color: #0366d6;"></i> <strong>Sports:</strong> Football, Cricket, Badminton</p>
+        <p><i class="fas fa-pencil-alt" style="color: #0366d6;"></i> <strong>Creative:</strong> Drawing & Sketching</p>
+        <p><i class="fas fa-globe-asia" style="color: #0366d6;"></i> <strong>Travel:</strong> Exploring new places and cultures</p>
       </div>
     </section>
 
     <section id="education" class="section">
       <h2>Education</h2>
       <div class="card">
-        <h3>B-Tech CSE</h3>
-        <p>Vellore Institute of Technology</p>
-        <p>(2022-Present)</p>
+        <h3>B-Tech in Computer Science</h3>
+        <p><strong>Vellore Institute of Technology</strong></p>
+        <p>2022 - Present | CGPA: 8.5/10</p>
       </div>
       <div class="card">
-        <h3>2nd PUC</h3>
-        <p>Narayana PU College</p>
-        <p>(2020-2022)</p>
+        <h3>12th Grade (PUC)</h3>
+        <p><strong>Narayana PU College</strong></p>
+        <p>2020 - 2022 | Percentage: 92%</p>
       </div>
       <div class="card">
-        <h3>10th</h3>
-        <p>Narayana E-Techno (CBSE)</p>
-        <p>(2020)</p>
+        <h3>10th Grade (CBSE)</h3>
+        <p><strong>Narayana E-Techno School</strong></p>
+        <p>2020 | Percentage: 94%</p>
       </div>
     </section>
   </div>
 
   <div class="navbar">
     <a href="#about" class="active">
-      <i class="fas fa-home"></i>
+      <i class="fas fa-user"></i>
       <span>About</span>
     </a>
     <a href="#projects">
-      <i class="fas fa-briefcase"></i>
+      <i class="fas fa-code"></i>
       <span>Projects</span>
     </a>
     <a href="#skills">
-      <i class="fas fa-code"></i>
+      <i class="fas fa-cogs"></i>
       <span>Skills</span>
     </a>
     <a href="#certifications">
       <i class="fas fa-certificate"></i>
-      <span>Certifications</span>
-    </a>
-    <a href="#hobbies">
-      <i class="fas fa-heart"></i>
-      <span>Hobbies</span>
+      <span>Cert</span>
     </a>
     <a href="#education">
       <i class="fas fa-graduation-cap"></i>
-      <span>Education</span>
+      <span>Edu</span>
     </a>
   </div>
 </div>
 
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script>
   // Splash screen animation
   const scrambleEl = document.getElementById('scramble');
   const descEl = document.getElementById('splash-desc');
-  const name = "DHANUSH LAKSHMIPATHY";
+  const name = "dhanushlakshmipathy";
   let interval = null;
 
   function startScramble() {
     interval = setInterval(() => {
       let scrambled = name.split('').map(l => {
         if (l === ' ') return ' ';
-        return Math.random() > 0.3 ? String.fromCharCode(65 + Math.floor(Math.random() * 26)) : l;
-      }).join(' ');
+        return Math.random() > 0.3 ? String.fromCharCode(97 + Math.floor(Math.random() * 26)) : l;
+      }).join('');
       scrambleEl.textContent = scrambled;
     }, 120);
   }
 
   function endScramble() {
     clearInterval(interval);
-    scrambleEl.textContent = name.split('').join(' ');
+    scrambleEl.textContent = name;
     descEl.style.opacity = 1;
   }
 
@@ -509,17 +550,11 @@
 
   setTimeout(() => {
     endScramble();
-  }, 2500); // 2.5s scramble
+  }, 2000);
 
   setTimeout(() => {
     showMainContent();
-  }, 3500); // 1s show final + desc, then load portfolio
-
-  // Typed.js animation for hero section
-  new Typed("#typed", {
-    strings: ["I am a Web Developer", "a Cloud Engineer", "and a Gamer!"],
-    typeSpeed: 50, backSpeed: 25, loop: true
-  });
+  }, 3000);
 
   // Skills filter functionality
   const buttons = document.querySelectorAll(".filter-btn");
@@ -535,27 +570,27 @@
     });
   });
 
-  // Navbar active section highlighting
-  window.addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.navbar a');
-    
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      if (pageYOffset >= (sectionTop - 300)) {
-        current = section.getAttribute('id');
-      }
-    });
-    
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href').includes(current)) {
-        link.classList.add('active');
-      }
-    });
+// Improved Navbar active section highlighting
+window.addEventListener('scroll', function() {
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.navbar a');
+
+  let current = '';
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+      current = section.getAttribute('id');
+    }
   });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href').includes(current)) {
+      link.classList.add('active');
+    }
+  });
+});
+
 </script>
 </body>
 </html>
