@@ -1,599 +1,245 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dhanush Lakshmipathy | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-    /* Light theme splash screen */
-    #splash {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: #f6f8fa;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      font-family: 'Inter', sans-serif;
-      color: #24292e;
-    }
-    #splash h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin: 0;
-      color: #0366d6;
-    }
-    #splash p {
-      font-size: 1rem;
-      color: #586069;
-      margin-top: 10px;
-      opacity: 0;
-      transition: opacity 0.5s;
-    }
-    #splash desc{
-      align-items: center;
-    }
-    #splash::after {
-      content: 'Loading...';
-      position: absolute;
-      bottom: 40px;
-      color: #586069;
-      font-size: 0.9rem;
-    }
-
-    /* Hide portfolio initially */
-    #main-content {
-      display: none;
-    }
-
-    * { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
-      scroll-behavior: smooth; 
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #ffffff;
-      color: #24292e;
-      line-height: 1.5;
-    }
-
-    /* Light theme header */
-    header {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 32px 16px;
-      display: flex;
-      gap: 32px;
-      align-items: center;
-      border-bottom: 1px solid #e1e4e8;
-    }
-    header h1 { 
-      font-size: 1.8rem; 
-      font-weight: 600; 
-      margin-bottom: 8px;
-      color: #000000;
-    }
-    header p { 
-      font-size: 1rem; 
-      color: #586069;
-      margin-bottom: 16px; 
-    }
-    .socials {
-      margin: 16px 0;
-    }
-    .socials a {
-      display: inline-block;
-      margin-right: 16px;
-      text-decoration: none;
-      color: #586069;
-      font-size: 18px;
-      transition: all 0.1s ease;
-    }
-    .socials a:hover { 
-      color: #0366d6;
-    }
-
-    .download-resume {
-      display: inline-block;
-      margin-top: 8px;
-      background: #f6f8fa;
-      color: #24292e;
-      padding: 6px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 14px;
-      transition: all 0.1s ease;
-      border: 1px solid #e1e4e8;
-    }
-    .download-resume:hover {
-      background: #e1e4e8;
-      border-color: #d1d5da;
-    }
-
-    .container { 
-      max-width: 1280px; 
-      margin: auto; 
-      padding: 0 16px; 
-    }
-
-    /* Light theme sections */
-    .section { 
-      margin: 48px 0; 
-    }
-    .section h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #000000;
-      margin-bottom: 24px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #e1e4e8;
-    }
-
-    /* Light theme cards */
-    .card {
-      background: #f6f8fa;
-      padding: 24px;
-      border-radius: 6px;
-      margin-bottom: 16px;
-      transition: all 0.2s ease;
-      border: 1px solid #e1e4e8;
-    }
-    .card:hover { 
-      border-color: #0366d6;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transform: translateY(-2px);
-    }
-    .card h3 { 
-      margin-bottom: 12px; 
-      color: #0366d6;
-      font-size: 1.1rem;
-      font-weight: 500;
-    }
-    .card p { 
-      margin-bottom: 8px; 
-      color: #586069;
-      font-size: 0.95rem;
-    }
-    .tag {
-      display: inline-block;
-      background: #f1f8ff;
-      color: #0366d6;
-      padding: 3px 8px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-      margin-left: 8px;
-    }
-
-    /* Hero section */
-    .hero {
-      background: #ffffff;
-      padding: 80px 16px;
-      text-align: center;
-      margin-bottom: 32px;
-      border-bottom: 1px solid #e1e4e8;
-    }
-    .hero h2 { 
-      font-size: 2rem; 
-      font-weight: 600;
-      color: #24292e;
-      margin-bottom: 16px;
-    }
-    .hero p.subtitle {
-      color: #586069;
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Animated underline for hero */
-    .hero h2::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 3px;
-      background: #0366d6;
-      margin: 16px auto 0;
-      animation: underline 2s infinite ease-in-out;
-    }
-    @keyframes underline {
-      0%, 100% { width: 80px; }
-      50% { width: 120px; }
-    }
-
-    /* Light theme filters */
-    .filters {
-      margin-bottom: 20px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .filter-btn {
-      border: 1px solid #e1e4e8;
-      background: #f6f8fa;
-      color: #24292e;
-      padding: 5px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 500;
-      transition: all 0.1s ease;
-    }
-    .filter-btn.active { 
-      background: #0366d6;
-      color: #ffffff;
-      border-color: #0366d6;
-    }
-    .filter-btn:hover {
-      background: #e1e4e8;
-      border-color: #d1d5da;
-    }
-
-    /* Light theme skills */
-    .skills-box {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .skill-tag {
-      background: #f6f8fa;
-      color: #0366d6;
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-      transition: all 0.1s ease;
-      border: 1px solid #e1e4e8;
-    }
-    .skill-tag:hover {
-      background: #f1f8ff;
-    }
-
-    /* Light theme navbar */
-    .navbar {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ffffff;
-      border-radius: 6px;
-      padding: 8px 16px;
-      display: flex;
-      gap: 24px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      z-index: 1000;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid #e1e4e8;
-    }
-    .navbar a {
-      text-decoration: none;
-      color: #586069;
-      font-weight: 500;
-      font-size: 12px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      transition: all 0.1s ease;
-    }
-    .navbar a:hover, .navbar a.active {
-      color: #0366d6;
-    }
-    .navbar a i {
-      font-size: 16px;
-    }
-
-    /* Profile image */
-    .image-container {
-        position: relative;
-        width: 160px;
-        height: 160px;
-        overflow: hidden;
-        border-radius: 6px;
-        flex-shrink: 0;
-        border: 1px solid #e1e4e8;
-        transition: all 0.2s ease;
-    }
-    .image-container:hover {
-        transform: scale(1.03);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .image-container img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    /* Project links */
-    .project-links {
-      margin-top: 12px;
-      display: flex;
-      gap: 12px;
-    }
-    .project-links a {
-      color: #0366d6;
-      text-decoration: none;
-      font-size: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      transition: all 0.1s ease;
-    }
-    .project-links a:hover {
-      text-decoration: underline;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-      .socials {
-        justify-content: center;
-      }
-      .navbar {
-        gap: 12px;
-        padding: 8px 12px;
-      }
-      .hero h2 {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<!-- Splash Screen -->
-<div id="splash">
-  <h1 id="scramble">dhanushlakshmipathy</h1>
-  <p id="splash-desc">Software Engineer passionate about creating meaningful software solutions</p>
-</div>
-
-<!-- Main Content -->
-<div id="main-content">
-  <header>
-    <div class="image-container">
-      <img src="me.jpg" alt="Profile Photo" />
-    </div>
-    <div>
-      <h1>Dhanush Lakshmipathy</h1>
-      <p>Software Engineer passionate about creating meaningful software solutions</p>
-      
-      <div class="socials">
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lakshmipathydhanush@gmail.com" target="_blank" title="Email">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-        <a href="https://github.com/dhanushlakshmipathy" target="_blank">
-          <i class="fa-brands fa-github"></i>    
-        </a>
-        <a href="https://www.linkedin.com/in/dhanushlakshmipathy" target="_blank">
-          <i class="fa-brands fa-linkedin"></i>     
-        </a>
-      </div>
-      <a href="https://github.com/dhanushlakshmipathy/myportfolio/raw/main/RESUME.pdf" class="download-resume" download>
-        </i> Download Resume
-      </a>
-    </div>
-  </header>
-
-  <div class="hero">
-    <h2>Building digital experiences with code</h2>
-    <p class="subtitle">Full-Stack Developer | Problem Solver | Tech Enthusiast</p>
+  <!-- Splash Screen -->
+  <div id="splash">
+    <h1 id="scramble">dhanushlakshmipathy</h1>
+    <p id="splash-desc">Software Engineer | Creator | Problem Solver</p>
   </div>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="image-container">
+        <img src="me.jpg" alt="Dhanush Lakshmipathy" class="profile-img" />
+      </div>
+      <h1>Building Digital<br>Experiences That Matter.</h1>
+      <p>Hi, I'm Dhanush Lakshmipathy. A Software Engineer passionate about creating meaningful solutions.</p>
+      <div class="cta-group">
+        <a href="#work" class="btn">View My Work</a>
+        <a href="https://github.com/dhanushlakshmipathy/myportfolio/raw/main/Dhanush.L_Resume.pdf"
+          class="btn btn-outline" download>Resume</a>
+      </div>
+    </div>
+  </section>
 
   <div class="container">
-    <section id="about" class="section">
-      <h2>README.md</h2>
-      <div class="card">
-        <p>Motivated and detail-oriented software engineer with experience in full-stack web development, problem solving, and teamwork. Seeking opportunities to apply my skills and grow professionally.</p>
-        <p>When I'm not coding, you'll find me playing football, sketching, or exploring new technologies.</p>
-      </div>
-    </section>
 
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-      <div class="card">
-        <h3>Project Management App <span class="tag">MERN</span></h3>
-        <p><strong>Duration:</strong> June 2024 - July 2024</p>
-        <p>A full-stack application for managing projects with features like task assignment, progress tracking, and team collaboration.</p>
-        <div class="project-links">
-          <a href="https://github.com/dhanushlakshmipathy/project-management-app" target="_blank">
-            <i class="fab fa-github"></i> Code
-          </a>
-          <a href="https://project-management-demo.com" target="_blank">
-            <i class="fas fa-external-link-alt"></i> Live Demo
-          </a>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Piezoelectric Footstep Generator <span class="tag">Hardware</span></h3>
-        <p><strong>Duration:</strong> B-Tech 4th Semester</p>
-        <p>Designed and implemented a system that generates electricity from footstep pressure using piezoelectric plates and Arduino.</p>
-        <div class="project-links">
-          <a href="https://github.com/dhanushlakshmipathy/footstep-generator" target="_blank">
-            <i class="fab fa-github"></i> Documentation
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section">
-      <h2>Skills</h2>
-      <div class="filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="web">Web</button>
-        <button class="filter-btn" data-filter="db">Database</button>
-        <button class="filter-btn" data-filter="lang">Languages</button>
-      </div>
-      <div class="skills-box">
-        <span class="skill-tag web">React.js</span>
-        <span class="skill-tag web">Node.js</span>
-        <span class="skill-tag web">Express.js</span>
-        <span class="skill-tag web">HTML</span>
-        <span class="skill-tag web">CSS</span>
-        <span class="skill-tag web">JavaScript</span>
-        <span class="skill-tag db">MongoDB</span>
-        <span class="skill-tag db">MySQL</span>
-        <span class="skill-tag lang">Java</span>
-        <span class="skill-tag lang">Python</span>
-        <span class="skill-tag lang">C/C++</span>
-      </div>
-    </section>
-
-    <section id="certifications" class="section">
-      <h2>Certifications</h2>
-      <div class="card">
-        <h3>MERN Full Stack Certification</h3>
-        <p><strong>Issued by:</strong> Ethnus</p>
-        <p><strong>Date:</strong> May 2024</p>
-      </div>
-      <div class="card">
-        <h3>Java Full Stack Developer</h3>
-        <p><strong>Issued by:</strong> Udemy</p>
-        <p><strong>Date:</strong> March 2024</p>
-      </div>
-    </section>
-
-    <section id="hobbies" class="section">
-      <h2>Hobbies & Interests</h2>
-      <div class="card">
-        <p><i class="fas fa-futbol" style="color: #0366d6;"></i> <strong>Sports:</strong> Football, Cricket, Badminton</p>
-        <p><i class="fas fa-pencil-alt" style="color: #0366d6;"></i> <strong>Creative:</strong> Drawing & Sketching</p>
-        <p><i class="fas fa-globe-asia" style="color: #0366d6;"></i> <strong>Travel:</strong> Exploring new places and cultures</p>
-      </div>
-    </section>
-
-    <section id="education" class="section">
-      <h2>Education</h2>
-      <div class="card">
-        <h3>B-Tech in Computer Science</h3>
-        <p><strong>Vellore Institute of Technology</strong></p>
-        <p>2022 - Present | CGPA: 8.32</p>
-      </div>
-      <div class="card">
-        <h3>12th Grade (PUC)</h3>
-        <p><strong>Narayana PU College</strong></p>
-        <p>2020 - 2022 | Percentage:78%</p>
-      </div>
-      <div class="card">
-        <h3>10th Grade (CBSE)</h3>
-        <p><strong>Narayana E-Techno School</strong></p>
-        <p>2020 | Percentage: 88%</p>
-      </div>
-    </section>
+    <span class="tag">React</span>
+    <span class="tag">Node.js</span>
+    <span class="tag">AWS</span>
+  </div>
   </div>
 
+  <!-- Project 1 -->
+  <div class="card reveal"
+    onclick="window.open('https://github.com/dhanushlakshmipathy/project-management-app', '_blank')">
+    <div class="card-meta">Project</div>
+    <h3>Project Management App</h3>
+    <p class="text-secondary">Full Stack Application</p>
+    <p>A comprehensive tool for managing projects with real-time task updates and team collaboration features.</p>
+    <div class="tags">
+      <span class="tag">WordPress</span>
+    </div>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="card reveal" onclick="window.open('https://github.com/dhanushlakshmipathy/footstep-generator', '_blank')">
+    <div class="card-meta">Hardware Project</div>
+    <h3>Piezoelectric Generator</h3>
+    <p class="text-secondary">IoT / Hardware</p>
+    <p>Designed a system to generate electricity from footstep pressure using piezoelectric sensors.</p>
+    <div class="tags">
+      <span class="tag">Arduino</span>
+      <span class="tag">C++</span>
+      <span class="tag">Sensors</span>
+    </div>
+  </div>
+
+  </div>
+  <section id="skills" class="section">
+    <h2 class="reveal" style="text-align: center; display: block;">Technical Arsenal</h2>
+    <div class="skills-container reveal">
+      <span class="skill-pill">React.js</span>
+      <span class="skill-pill">Node.js</span>
+      <span class="skill-pill">Express.js</span>
+      <span class="skill-pill">MongoDB</span>
+      <span class="skill-pill">Java</span>
+      <span class="skill-pill">Python</span>
+      <span class="skill-pill">C/C++</span>
+      <span class="skill-pill">JavaScript</span>
+      <span class="skill-pill">HTML5 & CSS3</span>
+      <span class="skill-pill">Git & GitHub</span>
+      <span class="skill-pill">SQL</span>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="contact-box reveal">
+      <h2>Let's Work Together</h2>
+      <p>I'm currently open to new opportunities. Whether you have a question or just want to say hi, feel free to
+        reach out!</p>
+      <a href="mailto:lakshmipathydhanush@gmail.com" class="btn">Say Hello</a>
+
+      <div class="socials" style="margin-top: 2rem; font-size: 1.5rem;">
+        <a href="https://github.com/dhanushlakshmipathy" target="_blank"
+          style="display: inline-block; margin: 0 10px; color: var(--text-secondary);"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/dhanushlakshmipathy" target="_blank"
+          style="display: inline-block; margin: 0 10px; color: var(--text-secondary);"><i
+            class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <div style="height: 100px;"></div>
+
+  </div>
+
+  <!-- Floating Navbar -->
   <div class="navbar">
-    <a href="#about" class="active">
-      <i class="fas fa-user"></i>
-      <span>About</span>
+    <a href="#home" class="active">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
     </a>
-    <a href="#projects">
-      <i class="fas fa-code"></i>
-      <span>Projects</span>
-    </a>
-    <a href="#skills">
-      <i class="fas fa-cogs"></i>
-      <span>Skills</span>
+    <a href="#work">
+      <i class="fas fa-layer-group"></i>
+      <span>Work</span>
     </a>
     <a href="#certifications">
       <i class="fas fa-certificate"></i>
       <span>Cert</span>
     </a>
-    <a href="#education">
-      <i class="fas fa-graduation-cap"></i>
-      <span>Edu</span>
+    <a href="#skills">
+      <i class="fas fa-code"></i>
+      <span>Skills</span>
+    </a>
+    <a href="#contact">
+      <i class="fas fa-paper-plane"></i>
+      <span>Contact</span>
     </a>
   </div>
-</div>
 
-<script>
-  // Splash screen animation
-  const scrambleEl = document.getElementById('scramble');
-  const descEl = document.getElementById('splash-desc');
-  const name = "dhanushlakshmipathy";
-  let interval = null;
+  <script>
+    // Splash screen animation
+    const scrambleEl = document.getElementById('scramble');
+    const descEl = document.getElementById('splash-desc');
+    const splashEl = document.getElementById('splash');
+    const name = "dhanushlakshmipathy";
+    let interval = null;
 
-  function startScramble() {
-    interval = setInterval(() => {
-      let scrambled = name.split('').map(l => {
-        if (l === ' ') return ' ';
-        return Math.random() > 0.3 ? String.fromCharCode(97 + Math.floor(Math.random() * 26)) : l;
-      }).join('');
-      scrambleEl.textContent = scrambled;
-    }, 120);
-  }
+    function startScramble() {
+      let iteration = 0;
+      clearInterval(interval);
 
-  function endScramble() {
-    clearInterval(interval);
-    scrambleEl.textContent = name;
-    descEl.style.opacity = 1;
-  }
+      interval = setInterval(() => {
+        scrambleEl.innerText = name
+          .split("")
+          .map((letter, index) => {
+            if (index < iteration) {
+              return name[index];
+            }
+            return String.fromCharCode(65 + Math.floor(Math.random() * 26));
+          })
+          .join("");
 
-  function showMainContent() {
-    document.getElementById('splash').style.display = 'none';
-    document.getElementById('main-content').style.display = 'block';
-  }
+        if (iteration >= name.length) {
+          clearInterval(interval);
+          descEl.style.opacity = 1;
+          setTimeout(() => {
+            splashEl.style.opacity = 0;
+            splashEl.style.visibility = 'hidden';
+          }, 1000);
+        }
 
-  // Run splash animation
-  startScramble();
+        iteration += 1 / 3;
+      }, 30);
+    }
 
-  setTimeout(() => {
-    endScramble();
-  }, 2000);
+    // Start animation
+    startScramble();
 
-  setTimeout(() => {
-    showMainContent();
-  }, 3000);
+    // Theme Toggle Logic
+    const toggleBtn = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    const icon = toggleBtn.querySelector('i');
 
-  // Skills filter functionality
-  const buttons = document.querySelectorAll(".filter-btn");
-  const tags = document.querySelectorAll(".skill-tag");
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelector(".filter-btn.active").classList.remove("active");
-      btn.classList.add("active");
-      const filter = btn.dataset.filter;
-      tags.forEach(tag => {
-        tag.style.display = (filter === "all" || tag.classList.contains(filter)) ? "inline-block" : "none";
+    // Check local storage
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    updateIcon(savedTheme);
+
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateIcon(newTheme);
+    });
+
+    function updateIcon(theme) {
+      if (theme === 'dark') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      }
+    }
+
+    // Scroll Reveal Animation
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Navbar Active State
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.navbar a');
+
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 300) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
       });
     });
-  });
-
-// Improved Navbar active section highlighting
-window.addEventListener('scroll', function() {
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('.navbar a');
-
-  let current = '';
-  sections.forEach(section => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-      current = section.getAttribute('id');
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href').includes(current)) {
-      link.classList.add('active');
-    }
-  });
-});
-
-</script>
+  </script>
 </body>
+
 </html>
