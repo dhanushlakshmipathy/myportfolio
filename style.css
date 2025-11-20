@@ -100,6 +100,23 @@ section {
 .hero-content {
     max-width: 900px;
     z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.image-container {
+    order: 2;
+    position: relative;
+    width: fit-content;
+    /* Fix alignment */
+    margin: 0 auto;
+}
+
+.image-container::before {
+    content: '';
+    position: absolute;
     top: -10px;
     right: -10px;
     width: 100%;
